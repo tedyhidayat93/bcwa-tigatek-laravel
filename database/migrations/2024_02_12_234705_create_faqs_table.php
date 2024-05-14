@@ -13,10 +13,8 @@ return new class extends Migration
     {
         Schema::create('faqs', function (Blueprint $table) {
             $table->id();
-            $table->integer('faq_group_id');
             $table->text('ask');
-            $table->text('question');
-            $table->text('description')->nullable();
+            $table->longText('question')->nullable();
             $table->integer('is_active')->default(0);
             $table->integer('sequence');
             $table->integer('created_by')->nullable();

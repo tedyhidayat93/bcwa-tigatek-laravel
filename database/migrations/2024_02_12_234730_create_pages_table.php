@@ -13,13 +13,14 @@ return new class extends Migration
     {
         Schema::create('pages', function (Blueprint $table) {
             $table->id();
-            $table->enum('type', ['menu', 'page', 'link', 'shortcut'])->default('menu');
+            $table->enum('type', ['menu', 'page', 'link', 'shortcut'])->default('page');
             $table->string('code')->nullable();
             $table->string('name');
-            $table->text('caption')->nullable();
-            $table->text('description')->nullable();
-            $table->string('banner')->nullable();
-            $table->longText('value');
+            $table->string('slug');
+            $table->longText('value')->nullable();
+            $table->integer('is_default')->default(0);
+            $table->integer('is_show_in_footer')->default(0);
+            $table->integer('sequence')->nullable();
             $table->integer('is_active')->default(0);
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();

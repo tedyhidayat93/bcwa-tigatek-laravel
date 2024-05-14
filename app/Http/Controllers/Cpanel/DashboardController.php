@@ -9,6 +9,6 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        return 1;
+        return view('pages.cpanel.dashboard.index');
     }
 }

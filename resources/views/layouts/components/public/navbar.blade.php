@@ -2,7 +2,7 @@
     <div class="container">
         <a class="navbar-brand" href="#hero">
             {{-- <img src="{{$path_logo ?? asset('assets/fe-page/images/logo.png')}}" class="img-fluid" alt=""> --}}
-            <img src="{{asset('assets/fe-page/images/logo.png')}}" class="img-fluid" alt="">
+            <img src="{{$path_logo ?? asset('assets/fe-page/images/logo.png')}}" alt="{{$brand_name ?? 'Tigatek'}}" class="logo-main-nav">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -11,7 +11,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-            @if (request()->segment(1) != 'invoice')
+            @if (request()->segment(1) == '')
             <ul class="navbar-nav ms-auto mb-2 me-4 mb-lg-0 gap-3">
                 <li class="nav-item">
                     <a class="nav-link" href="#pricing">Harga</a>
@@ -20,7 +20,7 @@
                     <a class="nav-link" href="#faq">FAQ</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="https://wa.me/628123123123">Hubungi Kami</a>
+                    <a class="nav-link" href="{{$contact['whatsapp']}}">Hubungi Kami</a>
                 </li>
             </ul>
             <div class="d-flex" role="search">
@@ -37,7 +37,7 @@
                     <a class="nav-link" href="{{route('fe.homepage')}}#faq">FAQ</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('fe.homepage')}}https://wa.me/628123123123">Hubungi Kami</a>
+                    <a class="nav-link" href="{{$contact['whatsapp']}}">Hubungi Kami</a>
                 </li>
             </ul>
             <div class="d-flex" role="search">

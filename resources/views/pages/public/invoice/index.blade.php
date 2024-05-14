@@ -117,7 +117,10 @@
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
                                             </div>
-                                            <div class="modal-body p-5">
+                                            <div class="modal-body pb-5 pt-3">
+                                                <div class="w-100 text-center">
+                                                    <i class="fas fa-receipt text-secondary fa-3x mb-4"></i>
+                                                </div>
                                                 <form action="">
                                                     <small class="text-secondary">
                                                         Pastikan file yang dipilih format JPEG, PNG, JPG format (Max size 1 MB)
@@ -153,7 +156,7 @@
                                 </h6>
                             </div>
                             <div class="col-md-2 d-flex align-items-center">
-                                <a href="" class="btn btn-success rounded-pill"><i class="fab fa-whatsapp fa-fw"></i> Hubungi Admin</a>
+                                <a href="{{$contact['whatsapp']}}" class="btn btn-success rounded-pill"><i class="fab fa-whatsapp fa-fw"></i> Hubungi Admin</a>
                             </div>
                         </div>
                     </div>

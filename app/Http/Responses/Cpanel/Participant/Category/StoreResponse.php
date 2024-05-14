@@ -20,7 +20,7 @@ class StoreResponse implements Responsable
             });
             return redirect()
                 ->route('cpanel.participant.category.list')
-                ->with('success', 'Data has been successfully saved.');
+                ->with('success', 'Data berhasil disimpan.');
         } catch (\Exception $e) {
             return redirect()
                 ->back()

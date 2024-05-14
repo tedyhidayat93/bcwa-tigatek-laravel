@@ -14,24 +14,12 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
-            // UsersSeeder::class,
-            UserRolePermissionSeeder::class,
-            ProgramSeeder::class,
-            PostCategorySeeder::class,
-            PostSeeder::class,
+            UsersSeeder::class,
             ConfigGeneralProfileSeeder::class,
-            ConfigMedizineSeeder::class,
             ConfigMailSenderSeeder::class,
-            ConfigWaBlastSeeder::class,
-            ParticipantPermissionSeeder::class,
-            ParticipantTypeSeeder::class,
-            ProgramAndProgramTypePermissionSeeder::class,
-            InformationSeeder::class,
-            MessageSeeder::class,
-            ConfigGeneralTitleFooterSeeder::class,
-            PagesPermissionSeeder::class,
+            PackageSeeder::class,
+            FaqSeeder::class,
             PagesSeeder::class,
-            ConfigPaymentGatewaySeeder::class,
         ]);
     }
 }

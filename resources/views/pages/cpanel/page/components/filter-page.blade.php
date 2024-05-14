@@ -3,13 +3,11 @@
         <div class="col-md-4 d-flex align-items-center justify-content-start w-100">
             <h4 class="mb-0 font-weight-bold ml-1">
                 <i class="fas fa-layer-group p-1 bg-teal shadow-sm rounded mr-1" style="font-size:16px;"></i>    
-                Page List
+                Halaman List
             </h4>
         </div>
         <div class="col-md-8 d-flex align-items-center justify-content-end">
-            @can('create partners')
-            <a href="{{route('cpanel.page.create')}}" class="btn btn-success float-right"><i class="fas fa-fw fa-plus"></i>Add Page</a>
-            @endcan
+            <a href="{{route('cpanel.page.create')}}" class="btn btn-success float-right"><i class="fas fa-fw fa-plus"></i>Buat Halaman Baru</a>
         </div>
     </div>
 

@@ -3,17 +3,16 @@
         <thead>
             <tr>
                 <th scope="col" width="70px">#</th>
-                <th scope="col">Name</th>
-                <th scope="col">Link</th>
-                <th scope="col">Created at</th>
+                <th scope="col">Halaman</th>
+                <th scope="col">Link Halaman</th>
                 <th scope="col">Status</th>
-                <th scope="col" width="150px" class="text-center">Action</th>
+                <th scope="col" width="150px" class="text-center">Aksi</th>
             </tr>
         </thead>
         <tbody>
-            @forelse ($partners as $page)
+            @forelse ($pages as $page)
             <tr>
-                <td>{{$partners->firstItem()+$loop->index}}.</td>
+                <td>{{$pages->firstItem()+$loop->index}}.</td>
                 <td>
                     <b>
                         {{$page->name ?? '-'}}
@@ -26,28 +25,20 @@
                     </small>
                 </td>
                 <td>
-                    <a href="{{route('fe.page',$page->slug)}}" target="_blank" class="text-primary"><i class="fas fa-eye fa-fw"></i> Preview</a>
+                    <a href="{{route('fe.page',$page->slug)}}" target="_blank" class="text-primary">{{route('fe.page',$page->slug)}}</a>
                 </td>
                 <td>
-                    {{ date('d/m/Y', strtotime($page->created_at))}}
-                </td>
-                <td>
-                    {!!$page->is_active == 1 ? '<span class="badge bg-success">Active</span>' : '<span class="badge bg-secondary">Inactive</span>' !!}
+                    {!!$page->is_active == 1 ? '<span class="badge bg-success">Aktif</span>' : '<span class="badge bg-secondary">Non Aktif</span>' !!}
                 </td>
                 <td class="text-center">
-                    @can('update partners')
                     <a href="{{route('cpanel.page.edit', $page->id)}}" class="btn btn-sm btn-info">
                         <i class="fas fa-pen"></i>
                     </a>
-                    @endcan
-
-                    @can('delete partners')
-                        @if(empty($page->code) && $page->is_default == 0)
-                        <a href="{{route('cpanel.page.delete', $page->id)}}" class="btn btn-delete btn-sm btn-danger">
-                            <i class="fas fa-trash"></i>
-                        </a>
-                        @endif
-                    @endcan
+                    @if(empty($page->code) && $page->is_default == 0)
+                    <a href="{{route('cpanel.page.delete', $page->id)}}" class="btn btn-delete btn-sm btn-danger">
+                        <i class="fas fa-trash"></i>
+                    </a>
+                    @endif
                 </td>
             </tr>
             @empty

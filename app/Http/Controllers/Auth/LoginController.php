@@ -74,7 +74,7 @@ class LoginController extends Controller
                 ->update([
                     'last_login' => json_encode($last_login)
                 ]);
-            Log::logAction($request, 'Authentication', 'Login', 'Success Login to C-Panel');
+            // Log::logAction($request, 'Authentication', 'Login', 'Success Login to C-Panel');
 
 
             return $this->sendLoginResponse($request);
@@ -91,7 +91,7 @@ class LoginController extends Controller
     public function logout(Request $request)
     {
 
-        Log::logAction($request, 'Authentication', 'Logout', 'Success Logout from C-Panel');
+        // Log::logAction($request, 'Authentication', 'Logout', 'Success Logout from C-Panel');
 
         $this->guard()->logout();
 

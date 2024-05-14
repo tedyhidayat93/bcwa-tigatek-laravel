@@ -2,7 +2,7 @@
     <div class="mailbox-controls">
 
         <div class="d-block d-md-flex align-items-center justify-content-between px-3">
-            {!! $partners->appends(request()->query())->links('components.cpanel.pagination') !!}
+            {!! $pages->appends(request()->query())->links('components.cpanel.pagination') !!}
         </div>
 
     </div>

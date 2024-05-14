@@ -2,7 +2,7 @@
     <div class="card-header">
         <h6 class="m-0 font-weight-bold">
             <i class="fas fa-pen p-1 bg-teal shadow-sm rounded mr-1" style="font-size:16px;"></i>
-            {{$method == 'put' ? 'Edit' : 'Create New'}} Page
+            {{$method == 'put' ? 'Edit' : 'Tambah'}} Page
         </h6>
     </div>
 
@@ -14,7 +14,7 @@
             <div class="row">
                 <div class="px-md-3 col-md-8">
                     <div class="form-group row">
-                        <label class="col-sm-12 col-form-label px-0" for="name">Page Name <small class="text-danger">(*)</small></label>
+                        <label class="col-sm-12 col-form-label px-0" for="name">Nama Halaman <small class="text-danger">(*)</small></label>
                         <input class="form-control text-sm col-sm-12" id="name" type="text" name="name"
                             placeholder="Input name" value="{{old('name', $data->name)}}" required>
                     </div>
@@ -25,15 +25,15 @@
                         <div class="col-md-12">
                             <select name="is_active" class="form-control form-select">
                                 <option value="" selected disabled>Select Status</option>
-                                <option {{$data->is_active == 1 ? 'selected':''}} value="1">Active</option>
-                                <option {{$data->is_active == 0 ? 'selected':''}} value="0">Inactive</option>
+                                <option {{$data->is_active == 1 ? 'selected':''}} value="1">Aktif</option>
+                                <option {{$data->is_active == 0 ? 'selected':''}} value="0">Non Aktif</option>
                             </select>
                             @error('is_active') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row">
+            {{-- <div class="row">
                 <div class="px-md-3 col-md-12">
                     <div class="form-group row">
                         <label class="col-sm-12 col-form-label px-0" for="caption">Caption</label>
@@ -41,11 +41,11 @@
                             placeholder="Optional">{{old('caption', $data->caption)}}</textarea>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <div class="row">
                 <div class="px-md-3 col-md-12">
                     <div class="form-group row">
-                        <label class="col-sm-12 col-form-label px-0" for="value">Page Content</label>
+                        <label class="col-sm-12 col-form-label px-0" for="value">Isi Konten</label>
                         <div class="col-12 p-0">
                             <textarea class="form-control text-sm col-sm-12 ckeditor5" style="height: 500px;" id="value" type="text" rows="5" name="value"
                                 placeholder="Optional">{{old('value', $data->value)}}</textarea>
@@ -55,8 +55,8 @@
             </div>
             <div class="row mt-5">
                 <div class="col-12 p-0 d-flex align-items-center justify-content-center">
-                    <a href="{{route('cpanel.page.list')}}" class="btn btn-secondary mr-1">Cancel</a>
-                    <button type="submit" class="btn btn-success">Save</button>
+                    <a href="{{route('cpanel.page.list')}}" class="btn btn-secondary mr-1">Batal</a>
+                    <button type="submit" class="btn btn-success">Simpan</button>
                 </div>
             </div>
         </form>

@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamp('email_verified_at')->nullable();
-            $table->enum('status', ['active','inactive','suspend'])->default('inactive');
+            $table->enum('status', ['active','inactive','suspend'])->default('active');
             $table->integer('partner_id')->nullable();
             $table->timestamp('suspend_to')->nullable();
             $table->text('last_login')->nullable();

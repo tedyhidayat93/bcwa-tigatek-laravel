@@ -15,7 +15,7 @@ class DeleteSubcategoryResponse implements Responsable
             DB::transaction(function () use ($request) {
                 return $this->data($request);
             });
-            return back()->with('success', 'Data successfully deleted.');
+            return back()->with('success', 'Data berhasil dihapus.');
         } catch (\Exception $e) {
             return redirect()
                 ->back()

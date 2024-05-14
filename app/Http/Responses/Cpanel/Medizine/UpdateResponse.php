@@ -22,7 +22,7 @@ class UpdateResponse implements Responsable
             });
             return redirect()
                 ->route('cpanel.medizine.list')
-                ->with('success', 'The data has been successfully updated..');
+                ->with('success', 'Data berhasil diperbarui..');
         } catch (\Exception $e) {
             return redirect()
                 ->back()

@@ -4,44 +4,30 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Transaction extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'uuid',
-        'cart_id',
-        'voucher_id',
-        'participant_id',
-        'payer_name',
-        'payer_phone',
-        'payer_email',
-        'payer_address',
-        'discount',
-        'tax',
-        'admin',
-        'sub_total',
-        'grand_total',
-        'currency',
+        'name',
+        'email',
+        'whatsapp',
+        'date',
+        'inv_number',
+        'package_id',
+        'item_name',
+        'unit_price',
+        'qty',
+        'amount',
+        'payment_method',
+        'payment_evidence',
+        'buyer_agree_terms',
         'status',
-        'note',
+        'paid_at',
         'created_by',
         'updated_by',
         'deleted_by',
-        'paid_at',
-        'created_at',
-        'updated_at',
-        'deleted_at',
     ];
-
-    public function cart()
-    {
-        return $this->belongsTo(Cart::class, 'cart_id');
-    }
-
-    public function payments()
-    {
-        return $this->hasMany(Payment::class, 'transaction_id');
-    }
 }

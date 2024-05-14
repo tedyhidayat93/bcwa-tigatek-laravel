@@ -8,10 +8,10 @@
         <div class="card border-0 bg-transparent shadow-none" style="width:100%;">
             <div class="card-body bg-transparent py-3 px-3 px-md-5">
                 <div class="d-flex align-items-center justify-content-between w-100 rounded">
-                    <img src="{{$path_logo}}" class="rounded w-25 mr-3">
+                    <img src="{{$path_logo ?? asset('assets/fe-page/images/logo.png')}}" class="rounded w-25 mr-3">
                     <div class="text-right pt-3">
-                        <h4 class="font-weight-bold text-dark mb-0">{{$brand_name}}</h4>
-                        <p class="text-medium-emphasis text-md">{{$brand_tagline}}</p>
+                        <h4 class="font-weight-bold text-dark mb-0">{{$brand_name ?? env("APP_NAME")}}</h4>
+                        <p class="text-medium-emphasis text-md">{{$brand_tagline ?? env("APP_NAME")}}</p>
                     </div>
                 </div>
                 

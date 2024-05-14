@@ -19,6 +19,7 @@ class PageController extends Controller
                 'page' => $data
             ]);
         } catch (\Exception $e) {
+            dd($e);
             return redirect()
                 ->back()
                 ->with('error', $e->getMessage());

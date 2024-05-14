@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 class ConfigGeneralProfileSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Jalankan database seed.
      */
     public function run(): void
     {
@@ -18,11 +18,11 @@ class ConfigGeneralProfileSeeder extends Seeder
             [
                 'group' => 'GENERAL_PROFILE',
                 'code' => 'GENERAL_PROFILE_LOGO',
-                'name' => 'Brand Logo',
-                'description' => 'Application logo applied to all pages',
+                'name' => 'Logo Brand',
+                'description' => 'Logo aplikasi yang diterapkan di semua halaman',
                 'value' => '',
                 'form_type' => 'file',
-                'is_active' => 1, // 1:active | 0:inactive
+                'is_active' => 1, // 1:aktif | 0:nonaktif
                 'created_at' => Carbon::now(),
                 'updated_at' => null,
                 'deleted_at' => null,
@@ -30,11 +30,11 @@ class ConfigGeneralProfileSeeder extends Seeder
             [
                 'group' => 'GENERAL_PROFILE',
                 'code' => 'GENERAL_PROFILE_NAME',
-                'name' => 'Brand Name',
-                'description' => 'Your brand/application name',
-                'value' => 'Fictro',
+                'name' => 'Nama Brand',
+                'description' => 'Nama brand/aplikasi Anda',
+                'value' => 'Broadcast WhatsApp',
                 'form_type' => 'text',
-                'is_active' => 1, // 1:active | 0:inactive
+                'is_active' => 1, // 1:aktif | 0:nonaktif
                 'created_at' => Carbon::now(),
                 'updated_at' => null,
                 'deleted_at' => null,
@@ -43,10 +43,10 @@ class ConfigGeneralProfileSeeder extends Seeder
                 'group' => 'GENERAL_PROFILE',
                 'code' => 'GENERAL_PROFILE_TAGLINE',
                 'name' => 'Tagline',
-                'description' => 'Your brand tagline',
-                'value' => 'Healthcare Development & Innovation Center',
+                'description' => 'Tagline brand Anda',
+                'value' => 'By Tiga Teknologi Persada',
                 'form_type' => 'text',
-                'is_active' => 1, // 1:active | 0:inactive
+                'is_active' => 1, // 1:aktif | 0:nonaktif
                 'created_at' => Carbon::now(),
                 'updated_at' => null,
                 'deleted_at' => null,
@@ -55,10 +55,10 @@ class ConfigGeneralProfileSeeder extends Seeder
                 'group' => 'GENERAL_PROFILE',
                 'code' => 'GENERAL_PROFILE_FOOTER_BRAND',
                 'name' => 'Footer Brand',
-                'description' => 'Your Brand/Application. This is displayed in the footer section on the front page of the website.',
-                'value' => 'BRAND | TAGLINE',
+                'description' => 'Brand/Aplikasi Anda. Ini ditampilkan di bagian footer pada halaman depan situs web.',
+                'value' => 'Broadcast WhatsApp By Tiga Teknologi Persada',
                 'form_type' => 'text',
-                'is_active' => 1, // 1:active | 0:inactive
+                'is_active' => 1, // 1:aktif | 0:nonaktif
                 'created_at' => Carbon::now(),
                 'updated_at' => null,
                 'deleted_at' => null,
@@ -66,11 +66,11 @@ class ConfigGeneralProfileSeeder extends Seeder
             [
                 'group' => 'GENERAL_PROFILE',
                 'code' => 'GENERAL_PROFILE_CAPTION',
-                'name' => 'Short Information',
-                'description' => 'Short Information About Your Brand/Application. This is displayed in the footer section on the front page of the website.',
+                'name' => 'Informasi Singkat',
+                'description' => 'Informasi Singkat Tentang Brand/Aplikasi Anda. Ini ditampilkan di bagian footer pada halaman depan situs web.',
                 'value' => '#',
                 'form_type' => 'textarea',
-                'is_active' => 1, // 1:active | 0:inactive
+                'is_active' => 1, // 1:aktif | 0:nonaktif
                 'created_at' => Carbon::now(),
                 'updated_at' => null,
                 'deleted_at' => null,
@@ -78,59 +78,11 @@ class ConfigGeneralProfileSeeder extends Seeder
             [
                 'group' => 'GENERAL_PROFILE',
                 'code' => 'GENERAL_PROFILE_ABOUT_ME',
-                'name' => 'About Your Brand/Application',
-                'description' => 'Information page About Us, contains information about your Brand/Application',
+                'name' => 'Tentang Brand/Aplikasi Anda',
+                'description' => 'Halaman Informasi Tentang Kami, berisi informasi tentang Brand/Aplikasi Anda',
                 'value' => '#',
                 'form_type' => 'textarea',
-                'is_active' => 1, // 1:active | 0:inactive
-                'created_at' => Carbon::now(),
-                'updated_at' => null,
-                'deleted_at' => null,
-            ],
-            [
-                'group' => 'GENERAL_PROFILE',
-                'code' => 'GENERAL_PROFILE_VISION',
-                'name' => 'Vision of Company',
-                'description' => 'Information page About Us section Vision',
-                'value' => '#',
-                'form_type' => 'textarea',
-                'is_active' => 1, // 1:active | 0:inactive
-                'created_at' => Carbon::now(),
-                'updated_at' => null,
-                'deleted_at' => null,
-            ],
-            [
-                'group' => 'GENERAL_PROFILE',
-                'code' => 'GENERAL_PROFILE_MISSION',
-                'name' => 'Mission of Company',
-                'description' => 'Information page About Us section Mission',
-                'value' => '#',
-                'form_type' => 'textarea',
-                'is_active' => 1, // 1:active | 0:inactive
-                'created_at' => Carbon::now(),
-                'updated_at' => null,
-                'deleted_at' => null,
-            ],
-            [
-                'group' => 'GENERAL_PROFILE',
-                'code' => 'GENERAL_PROFILE_LINK_ABOUT_ME',
-                'name' => 'Link to Brand/Company Profile Video',
-                'description' => 'Video information displayed on the front page. If not filled, it will not be displayed',
-                'value' => '#',
-                'form_type' => 'text',
-                'is_active' => 1, // 1:active | 0:inactive
-                'created_at' => Carbon::now(),
-                'updated_at' => null,
-                'deleted_at' => null,
-            ],
-            [
-                'group' => 'GENERAL_PROFILE',
-                'code' => 'GENERAL_PROFILE_COMPANY_PROFILE',
-                'name' => 'PDF Company Profile About Brand/Company',
-                'description' => 'Your brand/company\'s Company Profile in PDF form. If not filled, it will not be displayed',
-                'value' => '#',
-                'form_type' => 'file-non-image',
-                'is_active' => 1, // 1:active | 0:inactive
+                'is_active' => 1, // 1:aktif | 0:nonaktif
                 'created_at' => Carbon::now(),
                 'updated_at' => null,
                 'deleted_at' => null,
@@ -138,11 +90,11 @@ class ConfigGeneralProfileSeeder extends Seeder
             [
                 'group' => 'GENERAL_PROFILE',
                 'code' => 'GENERAL_PROFILE_EMAIL',
-                'name' => 'Primary Email',
-                'description' => 'Your brand\'s primary email. Displayed on the front page of the website',
-                'value' => 'info@fictro.com',
+                'name' => 'Email Utama',
+                'description' => 'Email utama brand Anda. Ditampilkan di halaman depan situs web',
+                'value' => 'info@tigatek.com',
                 'form_type' => 'text',
-                'is_active' => 1, // 1:active | 0:inactive
+                'is_active' => 1, // 1:aktif | 0:nonaktif
                 'created_at' => Carbon::now(),
                 'updated_at' => null,
                 'deleted_at' => null,
@@ -150,11 +102,23 @@ class ConfigGeneralProfileSeeder extends Seeder
             [
                 'group' => 'GENERAL_PROFILE',
                 'code' => 'GENERAL_PROFILE_CONTACT',
-                'name' => 'Primary Phone Number',
-                'description' => 'Your brand\'s phone number. Displayed on the front page of the website',
+                'name' => 'Nomor Telepon Utama',
+                'description' => 'Nomor telepon brand Anda. Ditampilkan di halaman depan situs web',
                 'value' => '#',
                 'form_type' => 'text',
-                'is_active' => 1, // 1:active | 0:inactive
+                'is_active' => 1, // 1:aktif | 0:nonaktif
+                'created_at' => Carbon::now(),
+                'updated_at' => null,
+                'deleted_at' => null,
+            ],
+            [
+                'group' => 'GENERAL_PROFILE',
+                'code' => 'GENERAL_PROFILE_WHATSAPP',
+                'name' => 'Tautan Langsung WhatsApp',
+                'description' => 'Tautan ke akun WhatsApp Anda',
+                'value' => '#',
+                'form_type' => 'text',
+                'is_active' => 1, // 1:aktif | 0:nonaktif
                 'created_at' => Carbon::now(),
                 'updated_at' => null,
                 'deleted_at' => null,
@@ -163,10 +127,10 @@ class ConfigGeneralProfileSeeder extends Seeder
                 'group' => 'GENERAL_PROFILE',
                 'code' => 'GENERAL_PROFILE_INSTAGRAM',
                 'name' => 'Instagram',
-                'description' => 'Link to your Instagram account',
+                'description' => 'Tautan ke akun Instagram Anda',
                 'value' => '#',
                 'form_type' => 'text',
-                'is_active' => 1, // 1:active | 0:inactive
+                'is_active' => 1, // 1:aktif | 0:nonaktif
                 'created_at' => Carbon::now(),
                 'updated_at' => null,
                 'deleted_at' => null,
@@ -175,10 +139,10 @@ class ConfigGeneralProfileSeeder extends Seeder
                 'group' => 'GENERAL_PROFILE',
                 'code' => 'GENERAL_PROFILE_LINKEDIN',
                 'name' => 'LinkedIn',
-                'description' => 'Link to your LinkedIn account',
+                'description' => 'Tautan ke akun LinkedIn Anda',
                 'value' => '#',
                 'form_type' => 'text',
-                'is_active' => 1, // 1:active | 0:inactive
+                'is_active' => 1, // 1:aktif | 0:nonaktif
                 'created_at' => Carbon::now(),
                 'updated_at' => null,
                 'deleted_at' => null,
@@ -187,10 +151,10 @@ class ConfigGeneralProfileSeeder extends Seeder
                 'group' => 'GENERAL_PROFILE',
                 'code' => 'GENERAL_PROFILE_FACEBOOK',
                 'name' => 'Facebook',
-                'description' => 'Link to your Facebook account',
+                'description' => 'Tautan ke akun Facebook Anda',
                 'value' => '#',
                 'form_type' => 'text',
-                'is_active' => 1, // 1:active | 0:inactive
+                'is_active' => 1, // 1:aktif | 0:nonaktif
                 'created_at' => Carbon::now(),
                 'updated_at' => null,
                 'deleted_at' => null,
@@ -199,10 +163,10 @@ class ConfigGeneralProfileSeeder extends Seeder
                 'group' => 'GENERAL_PROFILE',
                 'code' => 'GENERAL_PROFILE_X',
                 'name' => 'X/Twitter',
-                'description' => 'Link to your X/Twitter account',
+                'description' => 'Tautan ke akun X/Twitter Anda',
                 'value' => '#',
                 'form_type' => 'text',
-                'is_active' => 1, // 1:active | 0:inactive
+                'is_active' => 1, // 1:aktif | 0:nonaktif
                 'created_at' => Carbon::now(),
                 'updated_at' => null,
                 'deleted_at' => null,
@@ -211,10 +175,10 @@ class ConfigGeneralProfileSeeder extends Seeder
                 'group' => 'GENERAL_PROFILE',
                 'code' => 'GENERAL_PROFILE_YOUTUBE',
                 'name' => 'Youtube',
-                'description' => 'Link to your Youtube account',
+                'description' => 'Tautan ke akun Youtube Anda',
                 'value' => '#',
                 'form_type' => 'text',
-                'is_active' => 1, // 1:active | 0:inactive
+                'is_active' => 1, // 1:aktif | 0:nonaktif
                 'created_at' => Carbon::now(),
                 'updated_at' => null,
                 'deleted_at' => null,
@@ -223,22 +187,10 @@ class ConfigGeneralProfileSeeder extends Seeder
                 'group' => 'GENERAL_PROFILE',
                 'code' => 'GENERAL_PROFILE_TIKTOK',
                 'name' => 'Tiktok',
-                'description' => 'Link to your Tiktok account',
+                'description' => 'Tautan ke akun Tiktok Anda',
                 'value' => '#',
                 'form_type' => 'text',
-                'is_active' => 1, // 1:active | 0:inactive
-                'created_at' => Carbon::now(),
-                'updated_at' => null,
-                'deleted_at' => null,
-            ],
-            [
-                'group' => 'GENERAL_PROFILE',
-                'code' => 'GENERAL_PROFILE_WHATSAPP',
-                'name' => 'WhatsApp Direct Link',
-                'description' => 'Link to your WhatsApp account',
-                'value' => '#',
-                'form_type' => 'text',
-                'is_active' => 1, // 1:active | 0:inactive
+                'is_active' => 1, // 1:aktif | 0:nonaktif
                 'created_at' => Carbon::now(),
                 'updated_at' => null,
                 'deleted_at' => null,
@@ -246,11 +198,11 @@ class ConfigGeneralProfileSeeder extends Seeder
             [
                 'group' => 'GENERAL_PROFILE',
                 'code' => 'GENERAL_PROFILE_ADDRESS',
-                'name' => 'Full Address',
-                'description' => 'Complete address information of your company\'s position',
+                'name' => 'Alamat Lengkap',
+                'description' => 'Informasi alamat lengkap posisi perusahaan Anda',
                 'value' => '#',
                 'form_type' => 'textarea',
-                'is_active' => 1, // 1:active | 0:inactive
+                'is_active' => 1, // 1:aktif | 0:nonaktif
                 'created_at' => Carbon::now(),
                 'updated_at' => null,
                 'deleted_at' => null,
@@ -259,10 +211,10 @@ class ConfigGeneralProfileSeeder extends Seeder
                 'group' => 'GENERAL_PROFILE',
                 'code' => 'GENERAL_PROFILE_GMAPS',
                 'name' => 'Google Maps',
-                'description' => 'Google Maps location embed link of your company/brand',
+                'description' => 'Tautan semat lokasi Google Maps perusahaan/brand Anda',
                 'value' => '#',
                 'form_type' => 'textarea',
-                'is_active' => 1, // 1:active | 0:inactive
+                'is_active' => 1, // 1:aktif | 0:nonaktif
                 'created_at' => Carbon::now(),
                 'updated_at' => null,
                 'deleted_at' => null,
@@ -270,11 +222,11 @@ class ConfigGeneralProfileSeeder extends Seeder
             [
                 'group' => 'GENERAL_PROFILE',
                 'code' => 'GENERAL_PROFILE_OPERATIONAL_HOUR',
-                'name' => 'Operating Hours',
-                'description' => 'Operating Hours Information of your company/brand',
+                'name' => 'Jam Operasional',
+                'description' => 'Informasi Jam Operasional perusahaan/brand Anda',
                 'value' => '#',
                 'form_type' => 'textarea',
-                'is_active' => 1, // 1:active | 0:inactive
+                'is_active' => 1, // 1:aktif | 0:nonaktif
                 'created_at' => Carbon::now(),
                 'updated_at' => null,
                 'deleted_at' => null,
@@ -282,11 +234,11 @@ class ConfigGeneralProfileSeeder extends Seeder
             [
                 'group' => 'GENERAL_PROFILE',
                 'code' => 'GENERAL_PROFILE_META_KEYWORD',
-                'name' => 'Default Meta Keywords',
-                'description' => 'As the default SEO meta keywords displayed when shared',
+                'name' => 'Kata Kunci Meta Default',
+                'description' => 'Sebagai kata kunci SEO meta default yang ditampilkan saat berbagi',
                 'value' => '#',
                 'form_type' => 'textarea',
-                'is_active' => 1, // 1:active | 0:inactive
+                'is_active' => 1, // 1:aktif | 0:nonaktif
                 'created_at' => Carbon::now(),
                 'updated_at' => null,
                 'deleted_at' => null,
@@ -294,11 +246,11 @@ class ConfigGeneralProfileSeeder extends Seeder
             [
                 'group' => 'GENERAL_PROFILE',
                 'code' => 'GENERAL_PROFILE_META_DESCRIPTION',
-                'name' => 'Default Meta Description',
-                'description' => 'As the default SEO meta description when sharing links',
+                'name' => 'Deskripsi Meta Default',
+                'description' => 'Sebagai deskripsi meta SEO default saat berbagi tautan',
                 'value' => '#',
                 'form_type' => 'textarea',
-                'is_active' => 1, // 1:active | 0:inactive
+                'is_active' => 1, // 1:aktif | 0:nonaktif
                 'created_at' => Carbon::now(),
                 'updated_at' => null,
                 'deleted_at' => null,

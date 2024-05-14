@@ -19,7 +19,7 @@ class StoreResponse implements Responsable
             });
             return redirect()
                 ->back()
-                ->with('success', 'Data has been successfully saved.');
+                ->with('success', 'Data berhasil disimpan.');
         } catch (\Exception $e) {
             return redirect()
                 ->back()

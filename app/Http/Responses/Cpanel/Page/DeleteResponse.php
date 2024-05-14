@@ -13,9 +13,9 @@ class DeleteResponse implements Responsable
     {
         try {
             DB::transaction(function () use ($request) {
-                return $this->data($request);
+                Page::find($request->id);
             });
-            return back()->with('success', 'Data successfully deleted.');
+            return back()->with('success', 'Data berhasil dihapus.');
         } catch (\Exception $e) {
             return redirect()
                 ->back()

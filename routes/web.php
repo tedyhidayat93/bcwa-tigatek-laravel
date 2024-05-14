@@ -59,6 +59,17 @@ Route::prefix('cpanel/')
         Route::put('/update', [FaqController::class, 'update'])->name('update');
         Route::get('/delete/{id}', [FaqController::class, 'delete'])->name('delete');
     });
+    
+    Route::prefix('package/')
+    ->name('package.')
+    ->group(function () {
+        Route::get('/list', [PackageController::class, 'index'])->name('list');
+        Route::get('/create', [PackageController::class, 'create'])->name('create');
+        Route::post('/store', [PackageController::class, 'store'])->name('store');
+        Route::get('/edit/{id}', [PackageController::class, 'edit'])->name('edit');
+        Route::put('/update', [PackageController::class, 'update'])->name('update');
+        Route::get('/delete/{id}', [PackageController::class, 'delete'])->name('delete');
+    });
 
     Route::prefix('page/')
     ->name('page.')

@@ -12,29 +12,29 @@
 
     <title>{{ $head_title ?? "Tigatek Broadcast - Broadcast WhatsApp by Tiga Teknologi Persada"}}</title>
 
-    {{-- @if (!View::hasSection('meta_tags'))
+    @if (!View::hasSection('meta_tags'))
         <meta name="title" content="{{$brand_name.' - '.$brand_tagline}}"/>
         <meta name="description" content="{{ !empty($seo['default_meta_description']) && $seo['default_meta_description'] != '#' ? strip_tags($seo['default_meta_description']) : strip_tags($footer_caption)}}"/>
         <meta name="keywords" content="{{htmlspecialchars_decode(strip_tags($seo['default_meta_keywords'])) ?? 'Pendidikan, Kesehatan, Penelitian, Pelatihan, Fictro, Aceh, Jakarta'}}"/>
-        <meta name="author" content="{{$brand_name}}"/>
+        <meta name="author" content="{{$brand_name ?? env("APP_NAME")}}"/>
         <meta name="keywords" content=""/>
-        <meta property="og:site_name" content="{{$brand_name}} - {{$brand_tagline}}"/>
+        <meta property="og:site_name" content="{{$brand_name ?? env("APP_NAME")}} - {{$brand_tagline ?? env("APP_NAME")}}"/>
         <meta property="og:locale" content="en-US"/>
         <meta property="og:type" content="website"/>
         <meta property="og:title" content="{{$brand_name.' - '.$brand_tagline}}"/>
         <meta property="og:description" content="{{ !empty($seo['default_meta_description']) && $seo['default_meta_description'] != '#' ? strip_tags($seo['default_meta_description']) : strip_tags($footer_caption)}}"/>
         <meta property="og:url" content="{{request()->url()}}"/>
-        <meta property="og:image" content="{{asset('assets/images/default-cover-bg.png')}}"/>
+        <meta property="og:image" content="{{$path_logo}}"/>
         <meta name="twitter:site" content="@fictro"/>
         <meta name="twitter:creator" content="@fictro"/>
         <meta name="twitter:card" content="summary_large_image"/>
         <meta name="twitter:title" content="{{$brand_name.' - '.$brand_tagline}}"/>
         <meta name="twitter:description" content="{{ !empty($seo['default_meta_description']) && $seo['default_meta_description'] != '#' ? strip_tags($seo['default_meta_description']) : strip_tags($footer_caption)}}"/>
-        <meta name="twitter:image" content="{{$path_logo}}"/>
+        <meta name="twitter:image" content="{{$path_logo ?? asset('assets/fe-page/images/logo.png')}}"/>
         <link rel="canonical" href="{{request()->url()}}"/>
     @endif
 
-    @yield('meta_tags') --}}
+    @yield('meta_tags')
 
     <link rel="icon" href="{{$path_logo ?? asset('assets/fe-page/images/logo.png')}}" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
