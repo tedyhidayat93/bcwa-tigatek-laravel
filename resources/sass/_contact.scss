@@ -1,0 +1,32 @@
+#contactMain {
+    align-items: center;
+    justify-content: center;
+    background-color: $body-bg;
+
+    #gmaps {
+        width: 100%;
+        height: 40vh !important;
+        iframe {
+            width: 100%;
+            height: 100% !important;
+        }
+    }
+
+    .title-contact {
+        font-weight: 800;
+    }
+
+    #contactList {
+        width: 100%;
+        height: 100%;
+        .link-contact {
+            color: black;
+            &:hover {
+                color: $primary-bg;
+            }
+        }
+        .link-socmed {
+        }
+    }
+
+}

@@ -1,0 +1,468 @@
+#medizineHeadFilter {
+    background-color: $body-bg;
+    padding: 60px 0;
+    padding-bottom: 30px;
+    .accent-title-section {
+        width: 50px;
+        height: 50px;
+    }
+    .title {
+        font-weight: 800;
+    }
+}
+
+#medizineCategories {
+    padding: 10px 0;
+    background-color: $body-bg;
+    .card {
+        overflow: hidden;
+        cursor: pointer;
+        border-radius: 10px;
+        width: 100% !important;
+        height: 170px;
+        display: flex;
+        align-items: stretch !important;
+        justify-content: center;
+        .card-img {
+            transition: transform 0.3s ease;
+            width: 100% !important;
+            height: 100% !important;
+        }
+        .card-img-overlay {
+            background-color: rgba(32, 32, 32, 0.542);
+            .card-title {
+                color: $primary-bg;
+                font-weight: 700;
+            }
+        }
+        .card-title {
+            font-size: 20px;
+            transition: 0.5s;
+        }
+        @include media-breakpoint-only(xs) {
+            .card-title {
+                font-size: 15px;
+            }
+        }
+        &:hover {
+            .card-img-overlay {
+                background-color: rgba(208, 208, 208, 0.7);
+                transition: 0.5s;
+            }
+            .card-title {
+                text-shadow: 1px 1px 1px #d7d7d7;
+                color: #333;
+                font-size: 21px;
+            }
+            .card-img {
+                transform: scale(1.2);
+            }
+        }
+    }
+}
+
+#medizineHighlight {
+    background-color: $body-bg;
+    padding: 10px 0;
+    padding-bottom: 50px;
+    .article-highlight{
+        object-fit: cover;
+        .cover {
+            border-radius: 15px;
+            width: 100%;
+            height: 75vh;
+            overflow: hidden;
+            border-radius: 14px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: $body-bg-2;
+            object-position: center;
+            img {
+                width: 100%;
+                object-fit: cover;
+            }
+            iframe {
+                margin: 0;
+                padding: 0;
+            }
+        }
+        @include media-breakpoint-only(xs) {
+            .cover {
+                height: 60vh;
+            }
+        }
+        .type {
+            position: absolute;
+            display: flex;
+            top: 10px;
+            left: 10px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+        }
+        .content {
+            margin: 0 10px;
+            position: absolute;
+            bottom: 15px;
+            left: 0;
+            width: 97%;
+            background-color: white;
+            border-radius: 13px;
+            padding: 20px;
+            z-index: 9;
+            box-shadow: 0 1px 6px rgba(124, 124, 124, 0.353);
+        }
+    }
+    .article-list {
+        min-height: 75vh;
+        max-height: 75vh;
+        overflow-y: auto;
+        .article-list-item {
+            border: 1px solid rgb(229, 229, 229);
+            &:hover {
+                transition: 0.5s;
+                cursor: pointer;
+                background-color: #f0f0f0;
+            }
+        }
+    }
+    .article-grid {
+        transition: .5s;
+        .cover {
+            background-color: black;
+            height: 220px;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: $body-bg-2;
+            img {
+                width: 100%;
+                object-fit: cover;
+            }
+            iframe {
+                margin: 0;
+                padding: 0;
+            }
+        }
+        &:hover {
+            box-shadow: 0px 2px 14px rgba(0, 0, 0, 0.089);
+        }
+    }
+}
+
+#medizinePopular {
+    background-color: white;
+    padding: 30px 0;
+    padding-bottom: 50px;
+    .article-grid {
+        transition: .5s;
+        .cover {
+            background-color: black;
+            // height: 200px;
+            height: auto;
+            border-radius: 5px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: $body-bg-2;
+            img {
+                width: 100%;
+                object-fit: cover;
+            }
+            iframe {
+                margin: 0;
+                padding: 0;
+                height: 200px;
+            }
+        }
+        &:hover {
+            box-shadow: 0px 2px 14px rgba(0, 0, 0, 0.089);
+        }
+    }
+}
+
+#medizineMore {
+    padding: 40px 0;
+    padding-top: 10px;
+    .article-list-item {
+        border: 1px solid rgb(240, 240, 240);
+        cursor: pointer;
+        &:hover {
+            transition: 0.3s;
+            background-color: #f6f6f6;
+            box-shadow: 0 1px 4px rgba(128, 128, 128, 0.375);
+        }
+    }
+    .card-ads-1 {
+        margin-bottom: 20px;
+        border: 1px solid rgba(245, 245, 245, 0.353);
+        background-color: #f0f0f0;
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            gap: 5;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+            max-height: 500px;
+            img {
+                object-fit: cover;
+            }
+        }
+    }
+    .card-ads-2 {
+        margin-bottom: 20px;
+        border: 1px solid rgba(245, 245, 245, 0.353);
+        background-color: #f0f0f0;
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            gap: 5;
+            align-items: center;
+            justify-content: center;
+            min-height: 500px;
+            max-height: 600px;
+            img {
+                object-fit: cover;
+            }
+        }
+    }
+    .card-categories {
+        .link-category {
+            &:hover {
+                transition: .3s;
+                background-color: $primary-bg !important;
+            }
+        }
+    }
+}
+
+#medizineRead {
+    padding: 30px 10px;
+    background-color: #fdfdfd;
+
+    #banner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $body-bg-2;
+        object-position: center;
+        border-radius: 5px;
+        overflow: hidden;
+        height: auto;
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
+        @include media-breakpoint-only(xs) {
+            height: auto;
+        }
+    }
+
+    #cardToc {
+        .card-body {
+            max-height: 600px;
+            overflow-y: auto;
+        }
+
+        @include media-breakpoint-only(xs) {
+            position: fixed;
+            bottom: -30px;
+            left: 0;
+            margin: 0 auto;
+            z-index: 999;
+            width: 100%;
+            .card-header {
+                text-align: center;
+                background-color: $primary-bg !important;
+                color: black !important;
+                padding: 15px 0;
+                font-weight: 600;
+            }
+            .card-body {
+                max-height: 500px;
+            }
+        }
+    }
+
+    #bodyAttributes {
+        .sticky-md-top {
+            top:110px;
+        }
+        #toc {
+          padding: 10px;
+
+          ul {
+            list-style-type: none;
+            padding: 2px 5px;
+
+            li {
+              margin-bottom: 5px;
+
+              a {
+                font-weight: bold;
+                text-decoration: none;
+                color: #333;
+
+                &:hover {
+                  color: #666;
+                  font-weight: 600;
+                }
+              }
+
+              ul {
+                transition: 0.3s;
+                li{
+                    a {
+                        font-weight: normal;
+                    }
+                    padding-left: 10px;
+                }
+              }
+            }
+          }
+        }
+        #medizineAuthors {
+            .ava-circle {
+                overflow: hidden;
+                display: flex;
+                align-items: stretch;
+                justify-content: center;
+                object-position: center;
+                img {
+                    object-fit: center;
+                }
+            }
+            .ava-main-author {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                border:0.2px solid rgb(238, 238, 238);
+            }
+            .ava-more-author {
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+            }
+
+            .socmed-link {
+                color: black !important;
+                &:hover {
+                    color: $primary-bg!important;
+                }
+            }
+
+            @include media-breakpoint-only(xs) {
+                .ava-main-author {
+                    width: 50px;
+                    height: 50px;
+                }
+            }
+        }
+    }
+
+    #medizineAuthorsModal {
+        .ava-circle {
+            overflow: hidden;
+            display: flex;
+            align-items: stretch;
+            justify-content: center;
+            object-position: center;
+            img {
+                object-fit: center;
+            }
+        }
+        .ava-main-author {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border:0.2px solid rgb(238, 238, 238);
+        }
+        .ava-more-author {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+
+        .socmed-link {
+            color: black !important;
+            &:hover {
+                color: $primary-bg!important;
+            }
+        }
+
+        @include media-breakpoint-only(xs) {
+            .ava-main-author {
+                width: 50px;
+                height: 50px;
+            }
+        }
+    }
+
+
+    #bodyContent {
+        // padding: 0 30px;
+        // line-height: 0.5 !important;
+        h2 {
+            font-weight: bold;
+            font-size: 26px;
+        }
+        h3 {
+            font-weight: bold;
+            font-size: 21px;
+        }
+        h4 {
+            font-weight: bold;
+            font-size: 18px;
+        }
+        h5 {
+            font-weight: bold;
+            font-size: 16px;
+        }
+        h6 {
+            font-weight: bold;
+            font-size: 15px;
+        }
+        p {
+            color: #535353;
+            font-size: 13pt;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+        blockquote {
+            font-style: italic;
+            font-weight: 600;
+            border-left: 4px solid $primary-bg;
+            padding: 10px;
+            margin: 20px 0;
+            line-height: 1.5;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+
+            th, td {
+                padding: 8px;
+                border: 1px solid #ddd;
+                text-align: left;
+            }
+
+            tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+        }
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+
+    }
+}

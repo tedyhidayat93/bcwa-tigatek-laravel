@@ -1,0 +1,21 @@
+// Variabel untuk warna utama
+$warna-abu: #f4f4f4;
+$warna-abu-terang: #fdfdfd;
+
+// Gaya scrollbar global
+*::-webkit-scrollbar {
+  width: 10px; // Lebar scrollbar
+}
+
+*::-webkit-scrollbar-track {
+  background: $warna-abu-terang; // Warna latar belakang track
+}
+
+*::-webkit-scrollbar-thumb {
+  background: $warna-abu; // Warna handle scrollbar
+  border-radius: 5px; // Border radius handle scrollbar
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: darken($warna-abu, 10%); // Warna handle scrollbar saat hover
+}

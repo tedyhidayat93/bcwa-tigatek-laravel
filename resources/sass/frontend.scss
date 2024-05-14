@@ -1,0 +1,136 @@
+// Variables
+@import 'bootstrap/scss/bootstrap';
+@import 'variables';
+@import 'pagination';
+@import 'scrollbar';
+@import 'navbar';
+@import 'homepage';
+@import 'about';
+@import 'gallery';
+@import 'program';
+@import 'medizine';
+@import 'contact';
+@import 'payment';
+@import 'feedback';
+@import 'app_footer';
+
+
+* {
+    font-family: $font-family-lato;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding-top: 4rem;
+    margin: 0;
+}
+
+
+a {
+    text-decoration: none;
+    color: #0048ff;
+    &:hover {
+        color: $primary-bg;
+    }
+}
+
+p {
+    margin-bottom: 7px;
+}
+
+.card-title {
+    a {
+        text-decoration: none;
+        color: black !important;
+        &:hover {
+            color: #2e2e2e !important;
+        }
+    }
+}
+
+blockquote {
+    font-style: italic;
+    font-weight: 600;
+    border-left: 4px solid $primary-bg;
+    padding: 10px;
+    margin: 20px 0;
+    line-height: 1.5;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th, td {
+        padding: 8px;
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+}
+
+.fw-verybold {
+    font-weight: 900;
+}
+.fw-extrabold {
+    font-weight: 800;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.bg-custom-1 {
+    background: rgb(0,0,0);
+    background: linear-gradient(207deg, rgb(24, 24, 24) 15%, rgb(38, 38, 38) 80%);
+    color: white !important;
+}
+
+.bg-custom-2 {
+    background-color: #10B29E;
+    color: white !important;
+    &:hover {
+        background-color: #158678;
+    }
+}
+
+.title-sub-section {
+    position: relative;
+    .accent-title-section {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: $primary-bg;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .title {
+        position: absolute;
+        padding-left: 15px;
+    }
+}
+
+.article-avatar {
+    width: 19px;
+    height: 19px;
+    overflow: hidden;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    object-position: start;
+    img {
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+.card {
+    border-radius: 13px;
+    border:unset;
+}
+

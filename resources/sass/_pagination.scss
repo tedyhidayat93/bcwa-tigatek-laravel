@@ -1,0 +1,42 @@
+.pagination-nav {
+    .pagination {
+        gap: 10px;
+
+        .page-link {
+            border-radius: 5px;
+            color: gray;
+            background-color: $body-bg;
+
+            &:hover {
+                background-color: $primary-bg;
+                color: #1f1f1f;
+
+            }
+
+            &.active {
+                background-color: $primary-bg;
+                color: black;
+            }
+        }
+
+        .page-item.disabled {
+            .page-link {
+                color: gray;
+
+                &:hover {
+                    background-color: transparent;
+                    color: gray;
+                }
+            }
+        }
+
+        .page-item {
+            .page-link.active {
+                background-color: $primary-bg;
+                color: rgb(0, 0, 0);
+                border: unset;
+                font-weight: 600;
+            }
+        }
+    }
+}

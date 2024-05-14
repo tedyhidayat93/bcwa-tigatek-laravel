@@ -1,0 +1,74 @@
+#galleryBox {
+    background-color: $body-bg;
+    padding: 10px 0;
+    .title-sub-section {
+        .accent-title-section {
+            border-radius: 50%;
+            background-color: $primary-bg;
+            width: 80px;
+            height: 80px;
+        }
+        .title {
+            font-weight: 800;
+        }
+    }
+
+    #galleryGridBox {
+        .card {
+            overflow: hidden;
+            cursor: pointer;
+            border-radius: 10px;
+            height: 300px;
+            display: flex;
+            align-items: stretch;
+            justify-content: center;
+            img {
+                object-fit: cover !important;
+                height: 100%;
+                object-position: center;
+                object-fit: cover;
+                transition: transform 0.3s ease;
+            }
+            .card-img-overlay {
+                background: rgb(29,11,0);
+                background: -moz-linear-gradient(0deg, rgba(29,11,0,0.9262298669467787) 24%, rgba(0,0,0,0.29037552521008403) 85%);
+                background: -webkit-linear-gradient(0deg, rgba(29,11,0,0.9262298669467787) 24%, rgba(0,0,0,0.29037552521008403) 85%);
+                background: linear-gradient(0deg, rgba(29,11,0,0.9262298669467787) 24%, rgba(0,0,0,0.29037552521008403) 85%);
+                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#1d0b00",endColorstr="#000000",GradientType=1);
+                .sub-bio {
+                    display: none;
+                    color: white;
+                    transition: transform 0.3s ease;
+                    span {
+                        font-size: 9pt;
+                    }
+                }
+                &:hover {
+                    background: rgb(0,0,0);
+                    background: -moz-linear-gradient(0deg, rgba(0,0,0,0.7917760854341737) 34%, rgba(0,0,0,0) 85%);
+                    background: -webkit-linear-gradient(0deg, rgba(0,0,0,0.7917760854341737) 34%, rgba(0,0,0,0) 85%);
+                    background: linear-gradient(0deg, rgba(0,0,0,0.7917760854341737) 34%, rgba(0,0,0,0) 85%);
+                    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#000000",GradientType=1);
+                    .sub-bio {
+                        display: block;
+                    }
+                }
+                .card-title {
+                    color: $primary-bg;
+                    font-weight: 700;
+                }
+                .card-text {
+                    color:white;
+                }
+            }
+            .card-title, .card-text {
+                margin: 0;
+            }
+            &:hover {
+                img {
+                    transform: scale(1.2);
+                }
+            }
+        }
+    }
+}

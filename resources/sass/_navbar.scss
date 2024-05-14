@@ -1,0 +1,91 @@
+.navbar {
+    border-bottom: 1px solid #e5e5e5;
+    .navbar-brand {
+        .navbar-logo-title{
+            h3 {
+                font-weight: 600;
+                margin: 0;
+                padding: 0;
+                color: #1a1a1a;
+            }
+            span {
+                margin-top: -5px;
+                font-size: 10pt;
+                color: #474747;
+            }
+        }
+    }
+    .offcanvas {
+        .offcanvas-title {
+            h3 {
+                font-weight: 600;
+                margin: 0;
+                padding: 0;
+                color: #1a1a1a;
+            }
+            span {
+                margin-top: -5px;
+                font-size: 10pt;
+                color: #474747;
+            }
+        }
+        .offcanvas-body {
+            ul.navbar-nav {
+                li.nav-item {
+                    position: relative; 
+                    a.nav-link {
+                        font-weight: 400;
+                        font-size: 12pt;
+                        &.active {
+                            font-weight: 600;
+                            &::after {
+                                content: '';
+                                height: 3px; 
+                                width: 30px;
+                                position: absolute;
+                                bottom: 5px;
+                                left: 10px;
+                                border-radius: 9px;
+                                background-color: $primary-bg; 
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @include media-breakpoint-only(xs) {
+        .navbar-brand {
+            .navbar-logo-title{
+                h3 {
+                    font-size: 13pt;
+                    font-weight: 600;
+                }
+                span {
+                    margin-top: -5px;
+                    font-size:7pt;
+                }
+            }
+        }
+        .offcanvas {
+            .offcanvas-title {
+                h3 {
+                    font-size: 12pt;
+                    font-weight: 600;
+                }
+                span {
+                    margin-top: -5px;
+                    font-size: 7pt;
+                }
+            }
+            .offcanvas-body {
+                li {
+                    a {
+                        font-size: 11pt;
+                    }
+                }
+            }
+        }
+    }
+}
