@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand-lg bg-dark" id="main-navbar" data-bs-theme="dark">
     <div class="container">
         <a class="navbar-brand" href="#hero">
-            {{-- <img src="{{$path_logo ?? asset('assets/fe-page/images/logo.png')}}" class="img-fluid" alt=""> --}}
-            <img src="{{$path_logo ?? asset('assets/fe-page/images/logo.png')}}" alt="{{$brand_name ?? 'Tigatek'}}" class="logo-main-nav">
+            {{-- <img src="{{$path_logo ?? asset('assets/fe-page2/images/logo.png')}}" class="img-fluid" alt=""> --}}
+            <img src="{{$path_logo ?? asset('assets/fe-page2/images/logo.png')}}" alt="{{$brand_name ?? 'Tigatek'}}" class="logo-main-nav">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"

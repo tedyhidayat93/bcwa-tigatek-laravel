@@ -3,7 +3,7 @@
         <div class="row mb-4">
             <div class="col-md-7">
                 <div class="d-flex algin-items-center gap-3">
-                    <img src="{{$path_logo ?? asset('assets/fe-page/images/logo.png')}}" alt="{{$brand_name ?? 'Tigatek'}}" class="img-fluid">
+                    <img src="{{$path_logo ?? asset('assets/fe-page2/images/logo.png')}}" alt="{{$brand_name ?? 'Tigatek'}}" class="img-fluid">
                     <div>
                         <h4 class="text-warning mb-0">{{$brand_name}}</h4>
                         <small>{{$brand_tagline}}</small>

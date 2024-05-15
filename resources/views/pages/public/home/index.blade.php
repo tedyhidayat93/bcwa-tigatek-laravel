@@ -141,7 +141,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 d-flex align-items-center justify-content-center">
-                <img src="{{asset('assets/fe-page/images/faq.png')}}" class="img-faq" alt="">
+                <img src="{{asset('assets/fe-page2/images/faq.png')}}" class="img-faq" alt="">
             </div>
             <div class="col-md-8 px-3 px-md-4">
                 <h2 class="fs-1 fw-bold mb-3 px-3 px-md-4">FAQ</h2>
@@ -185,7 +185,7 @@
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <img src="{{asset('assets/fe-page/images/call.png')}}" class="img-fluid" alt="">
+                                <img src="{{asset('assets/fe-page2/images/call.png')}}" class="img-fluid" alt="">
                             </div>
                         </div>
                     </div>

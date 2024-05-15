@@ -1,7 +1,7 @@
 <aside class="main-sidebar sidebar-dark-warning">
     <!-- Brand Logo -->
     <a href="" class="brand-link bg-custom-1">
-        <img src="{{$path_logo ?? asset('assets/fe-page/images/logo.png')}}" alt="Fictro" class="brand-image elevation-1 rounded-sm">
+        <img src="{{$path_logo ?? asset('assets/fe-page2/images/logo.png')}}" alt="Fictro" class="brand-image elevation-1 rounded-sm">
         <span class="brand-text font-weight-bolder text-warning text-uppercase">{{$brand_name ?? 'ADMIN'}}</span>
     </a>
 

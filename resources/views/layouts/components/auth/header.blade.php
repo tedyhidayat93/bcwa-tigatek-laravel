@@ -7,10 +7,10 @@
 
     <!-- CSRF Token -->
     <title>{{$brand_name ?? env("APP_NAME")}} | {{$brand_tagline ?? env("APP_NAME")}}</title>
-    <link rel="shortcut icon" href="{{$path_logo ?? asset('assets/fe-page/images/logo.png')}}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{$path_logo ?? asset('assets/fe-page2/images/logo.png')}}" type="image/x-icon">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Google Font: Source Sans Pro -->
-    <link rel="icon" href="{{$path_logo ?? asset('assets/fe-page/images/logo.png')}}" type="image/x-icon">
+    <link rel="icon" href="{{$path_logo ?? asset('assets/fe-page2/images/logo.png')}}" type="image/x-icon">
 
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">

@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{$brand_name ?? env("APP_NAME")}} | {{$brand_tagline ?? env("APP_NAME")}}</title>
-    <link rel="shortcut icon" href="{{$path_logo ?? asset('assets/fe-page/images/logo.png')}}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{$path_logo ?? asset('assets/fe-page2/images/logo.png')}}" type="image/x-icon">
 
     <!-- Fonts -->
     <!-- Google Font: Source Sans Pro -->
