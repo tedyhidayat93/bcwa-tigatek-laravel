@@ -2,13 +2,13 @@
     <div class="row">
         <div class="col-md-4 d-flex align-items-center justify-content-start w-100">
             <h4 class="mb-0 font-weight-bold ml-1">
-                <i class="fas fa-layer-group p-1 bg-teal shadow-sm rounded mr-1" style="font-size:16px;"></i>    
-                Transaction List
+                <i class="fas fa-layer-group p-1 bg-teal shadow-sm rounded mr-1" style="font-size:16px;"></i>
+                Transaksi List
             </h4>
         </div>
         <div class="col-md-8 d-flex align-items-center justify-content-end">
             {{-- @can('create transaction')
-            <a href="{{route('cpanel.transaction.create')}}" class="btn btn-success float-right"><i class="fas fa-fw fa-plus"></i>Add Transaction</a>
+            <a href="{{route('cpanel.transaction.create')}}" class="btn btn-success float-right"><i class="fas fa-fw fa-plus"></i>Add Transaksi</a>
             @endcan --}}
         </div>
     </div>

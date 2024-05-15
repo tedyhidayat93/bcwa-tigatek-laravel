@@ -11,6 +11,7 @@ class Transaction extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
+        'buyer_agree_terms',
         'name',
         'email',
         'whatsapp',
@@ -22,12 +23,19 @@ class Transaction extends Model
         'qty',
         'amount',
         'payment_method',
-        'payment_evidence',
-        'buyer_agree_terms',
         'status',
+        'payment_proof',
+        'payment_proof_date',
+        'rejected_at',
         'paid_at',
+        'note',
         'created_by',
         'updated_by',
         'deleted_by',
     ];
+
+    public function package()
+    {
+        return $this->belongsTo(Package::class, 'package_id');
+    }
 }

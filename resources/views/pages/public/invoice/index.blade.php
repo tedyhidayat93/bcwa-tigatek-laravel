@@ -5,23 +5,41 @@
 
 <section id="invoice">
     <div class="container">
+
         <div class="row">
             <div class="col-12">
+
                 <div class="card border-0 shadow">
                     <div class="card-body p-5">
+                        @include('components.public.alerts')
                         <div class="row">
                             <div class="col-md-6">
                                 <h1 class="fw-bold fs-4 mb-0">INVOICE</h1>
                                 <p><i>Broadcast WhatsApp by Tiga Teknologi Persada</i></p>
+                            </div>
+                            <div class="col-md-6 d-flex justify-content-md-end align-items-md-center">
+                                @if($invoice->status == 'PENDING' && empty($invoice->payment_proof))
+                                    <span class="badge bg-warning px-3 rounded-pill py-2 text-dark mb-3"><i class="far fa-clock"></i> Menunggu Pembayaran</span>
+                                @elseif($invoice->status == 'PENDING' && !empty($invoice->payment_proof))
+                                    <span class="badge bg-info px-3 rounded-pill py-2 text-dark mb-3"><i class="far fa-clock"></i> Menunggu Konfirmasi Admin</span>
+                                @elseif($invoice->status == 'PAID')
+                                    <span class="badge bg-success px-3 rounded-pill py-2 text-white mb-3"><i class="fas fa-check"></i> Lunas</span>
+                                @elseif($invoice->status == 'REJECTED')
+                                    <span class="badge bg-danger px-3 rounded-pill py-2 text-white mb-3"><i class="fas fa-times"></i> Ditolak</span>
+                                @elseif($invoice->status == 'EXPIRED')
+                                    <span class="badge bg-secondary px-3 rounded-pill py-2 text-white mb-3"><i class="fas fa-times"></i> Kadaluarsa</span>
+                                @else
+                                    <span class="badge bg-light px-3 rounded-pill py-2 text-white mb-3">-</span>
+                                @endif
                             </div>
                         </div>
                         <hr>
                         <div class="row">
                             <div class="col-md-4">
                                 <small class="text-secondary">Tanggal :</small>
-                                <p class="fw-medium">24 Mei 2024</p>
+                                <p class="fw-medium">{{ date('d-m-Y', strtotime($invoice->date))}}</p>
                                 <small class="text-secondary">Nomor Invoice :</small>
-                                <h2 class="fw-bold fs-1 mb-0 text-success">INV-TIGATEK-0001</h2>
+                                <h2 class="fw-bold fs-1 mb-0 text-success">{{$invoice->inv_number}}</h2>
                                 <small class="text-secondary">*Harap menyimpan dan mengingat nomor INVOICE
                                     diatas</small>
                             </div>
@@ -32,17 +50,17 @@
                                     <tr>
                                         <th width="200">Nama</th>
                                         <th width="20">:</th>
-                                        <td>Tedy Hidayat</td>
+                                        <td>{{$invoice->name}}</td>
                                     </tr>
                                     <tr>
                                         <th width="200">Email</th>
                                         <th width="20">:</th>
-                                        <td>tedymail@mail.com</td>
+                                        <td>{{$invoice->email}}</td>
                                     </tr>
                                     <tr>
                                         <th width="200">No.Telepon/WhatsApp</th>
                                         <th width="20">:</th>
-                                        <td>08123456789</td>
+                                        <td>{{$invoice->whatsapp}}</td>
                                     </tr>
                                 </table>
                             </div>
@@ -59,9 +77,9 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>Paket Free BC</td>
-                                            <td>100 Broadcast</td>
-                                            <td class="text-end">Rp 200</td>
+                                            <td>{{$invoice->package->name}}</td>
+                                            <td>{{number_format($invoice->qty, 0, ',', '.')}} Broadcast</td>
+                                            <td class="text-end">Rp {{number_format($invoice->package->price, 0, ',', '.')}}</td>
                                         </tr>
                                     </tbody>
                                     <tfoot>
@@ -69,7 +87,7 @@
                                             <th colspan="2" class="text-end">Total Tagihan</th>
                                             <th class="text-end">
                                                 <span class="fs-5 fw-bold text-success">
-                                                    Rp 1.500.000
+                                                    Rp {{number_format($invoice->amount, 0, ',', '.')}}
                                                 </span>
                                             </th>
                                         </tr>
@@ -85,26 +103,31 @@
                                     <tr>
                                         <th width="150">Nomor Rekening</th>
                                         <th width="10">:</th>
-                                        <td>1231231231</td>
+                                        <td>{{$bank['bank_norek']}}</td>
                                     </tr>
                                     <tr>
                                         <th width="150">Nama Bank</th>
                                         <th width="10">:</th>
-                                        <td>BCA</td>
+                                        <td>{{$bank['bank_name']}}</td>
                                     </tr>
                                     <tr>
                                         <th width="150">Atas Nama</th>
                                         <th width="10">:</th>
-                                        <td>PT. Tiga Teknologi Persada</td>
+                                        <td>{{$bank['bank_owner']}}</td>
                                     </tr>
                                 </table>
                             </div>
                             <div class="col-md-8 d-flex align-items-center justify-content-end">
                                 <!-- Button trigger modal -->
+
+                                @if (empty($invoice->payment_proof))
                                 <button type="button" class="btn btn-lg btn-primary" data-bs-toggle="modal"
                                     data-bs-target="#modalBuktiTrf">
                                     <i class="fas fa-receipt fa-fw"></i> Kirim Bukti Transfer
                                 </button>
+                                @else
+                                <h6 class="text-info"><i class="fas fa-check"></i> Bukti pembayaran telah dikirim.</h6>
+                                @endif
 
                                 <!-- Modal -->
                                 <div class="modal fade" id="modalBuktiTrf" tabindex="-1"
@@ -121,12 +144,15 @@
                                                 <div class="w-100 text-center">
                                                     <i class="fas fa-receipt text-secondary fa-3x mb-4"></i>
                                                 </div>
-                                                <form action="">
+                                                <form action="{{route('fe.payment-proof')}}" method="POST" enctype="multipart/form-data">
+                                                    @csrf
                                                     <small class="text-secondary">
-                                                        Pastikan file yang dipilih format JPEG, PNG, JPG format (Max size 1 MB)
+                                                        Pastikan file yang dipilih format JPEG, PNG, JPG format (Max size 5 MB)
                                                     </small>
                                                     <div class="form-group my-3">
-                                                        <input type="file" name="" id="" class="form-control">
+                                                        <input type="hidden" value="{{$invoice->pacakge_id}}" name="package">
+                                                        <input type="hidden" value="{{$invoice->inv_number}}" name="inv_number">
+                                                        <input type="file" name="proof_payment" id="proof_payment" class="form-control" accept="image/jpeg, image/png, image/jpg">
                                                     </div>
                                                     <button type="submit" class="btn mt-2 fw-bold btn-warning rounded-pill w-100 shadow-sm">Kirim</button>
                                                 </form>
@@ -156,7 +182,7 @@
                                 </h6>
                             </div>
                             <div class="col-md-2 d-flex align-items-center">
-                                <a href="{{$contact['whatsapp']}}" class="btn btn-success rounded-pill"><i class="fab fa-whatsapp fa-fw"></i> Hubungi Admin</a>
+                                <a href="{{$contact['whatsapp'] ?? '#'}}" class="btn btn-success rounded-pill"><i class="fab fa-whatsapp fa-fw"></i> Hubungi Admin</a>
                             </div>
                         </div>
                     </div>

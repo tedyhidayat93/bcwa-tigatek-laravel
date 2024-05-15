@@ -89,6 +89,42 @@ class ConfigGeneralProfileSeeder extends Seeder
             ],
             [
                 'group' => 'GENERAL_PROFILE',
+                'code' => 'GENERAL_PROFILE_BANK_NAME',
+                'name' => 'Nama Bank',
+                'description' => 'Nama Bank yang digunakan untuk tujuan transfer',
+                'value' => 'BCA',
+                'form_type' => 'text',
+                'is_active' => 1, // 1:aktif | 0:nonaktif
+                'created_at' => Carbon::now(),
+                'updated_at' => null,
+                'deleted_at' => null,
+            ],
+            [
+                'group' => 'GENERAL_PROFILE',
+                'code' => 'GENERAL_PROFILE_BANK_REKENING_NUMBER',
+                'name' => 'Nomor Rekening Bank',
+                'description' => 'Nomor Rekening Bank untuk tujuan transfer',
+                'value' => '0982388323',
+                'form_type' => 'text',
+                'is_active' => 1, // 1:aktif | 0:nonaktif
+                'created_at' => Carbon::now(),
+                'updated_at' => null,
+                'deleted_at' => null,
+            ],
+            [
+                'group' => 'GENERAL_PROFILE',
+                'code' => 'GENERAL_PROFILE_BANK_OWNER',
+                'name' => 'Bank Atas Nama',
+                'description' => 'Atas Nama Nomor Rekening Bank',
+                'value' => 'PT. Tiga Teknologi Persada',
+                'form_type' => 'text',
+                'is_active' => 1, // 1:aktif | 0:nonaktif
+                'created_at' => Carbon::now(),
+                'updated_at' => null,
+                'deleted_at' => null,
+            ],
+            [
+                'group' => 'GENERAL_PROFILE',
                 'code' => 'GENERAL_PROFILE_EMAIL',
                 'name' => 'Email Utama',
                 'description' => 'Email utama brand Anda. Ditampilkan di halaman depan situs web',

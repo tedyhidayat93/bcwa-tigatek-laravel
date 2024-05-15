@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-6 col-md-10">
-                <h1 class="text-lg font-weight-bold">Transaction</h1>
+                <h1 class="text-lg font-weight-bold">Transaksi</h1>
             </div>
             <div class="col-6 col-md-2 d-flex align-items-center justify-content-end">
             </div>

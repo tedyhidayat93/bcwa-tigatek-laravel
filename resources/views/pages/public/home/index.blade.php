@@ -10,6 +10,10 @@
                 </div>
             </div>
             <div class="col-md-6 p-4 px-md-5 d-flex flex-column justify-content-center py-5">
+
+                <div class="col-12">
+                    @include('components.public.alerts')
+                </div>
                 <h1 class="fw-bold">
                     Broadcast WhatsApp by <br> Tiga Teknologi Persada. <br> Tingkatkan pelayanan bisnis <br> dan datangkan customer sebanyak-banyaknya.
                 </h1>
@@ -44,7 +48,7 @@
 </section>
 
 <section id="pricing">
-    <form action="" method="post">
+    <form action="{{route('fe.payment-checkout')}}" method="post">
         @csrf
         <div class="container">
             <div class="row">
@@ -53,95 +57,63 @@
                         <h2 class="mb-2 fw-bold fs-1 text-warning">Harga Paket</h2>
                         <p class="text-light">Dapatkan Penawaran Spesial Untuk-mu.</p>
                     </div>
-    
+
                     <ul class="list-group package-list gap-2">
-                        <li class="list-group-item d-flex bg-warning align-items-center justify-content-between">
+
+                        @foreach ($packages as $key => $package)
+                        <li class="list-group-item d-flex {{$key == 0 ? 'bg-warning':''}} align-items-center justify-content-between">
                             <label class="form-check-label py-md-3 d-flex flex-column">
-                                <span class="fs-3 fw-bold">1 - 10</span>
-                                <small class="text-dark">Kuota Broadcast</small>
+                                <span class="fs-3 fw-bold">{{number_format($package->min_quota, 0, ',', '.') ?? ''}} - {{number_format($package->max_quota, 0, ',', '.') ?? ''}}</span>
+                                <small class="text-dark">{{$package->description ?? ''}}</small>
                             </label>
                             <div class="d-flex align-items-center gap-2">
-                                <small>Rp. 0/Pesan</small>
-                                <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="0" data-price="0" data-min-quota="0" data-max-quota="10" id="firstRadio" checked>
+                                <small>Rp. {{ number_format($package->price, 0, ',', '.') }} {{$package->unit ?? ''}}</small>
+                                <input class="form-check-input me-1" type="radio" name="package" value="{{$package->id ?? ''}}" data-price="{{$package->price ?? ''}}" data-min-quota="{{$package->min_quota ?? 0}}" data-max-quota="{{$package->max_quota ?? 0}}" id="radioPackage{{$key}}" {{$key == 0 ? 'checked':''}}>
                             </div>
                         </li>
-                        <li class="list-group-item d-flex align-items-center justify-content-between">
-                            <label class="form-check-label py-md-3 d-flex flex-column">
-                                <span class="fs-3 fw-bold">1.000 - 99.000</span>
-                                <small class="text-dark">Kuota Broadcast</small>
-                            </label>
-                            <div class="d-flex align-items-center gap-2">
-                                <small>Rp. 250/Pesan</small>
-                                <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="250" data-price="250" data-min-quota="1000" data-max-quota="99000" id="secondRadio">
-                            </div>
-                        </li>
-                        <li class="list-group-item d-flex align-items-center justify-content-between">
-                            <label class="form-check-label py-md-3 d-flex flex-column">
-                                <span class="fs-3 fw-bold">100.000 - 499.999</span>
-                                <small class="text-dark">Kuota Broadcast</small>
-                            </label>
-                            <div class="d-flex align-items-center gap-2">
-                                <small>Rp. 230/Pesan</small>
-                                <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="230" data-price="230" data-min-quota="100000" data-max-quota="499999" id="thirdRadio">
-                            </div>
-                        </li>
-                        <li class="list-group-item d-flex align-items-center justify-content-between">
-                            <label class="form-check-label py-md-3 d-flex flex-column">
-                                <span class="fs-3 fw-bold">500.000 - 999.999</span>
-                                <small class="text-dark">Kuota Broadcast</small>
-                            </label>
-                            <div class="d-flex align-items-center gap-2">
-                                <small>Rp. 220/Pesan</small>
-                                <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="220" data-price="220" data-min-quota="500000" data-max-quota="999999" id="fourRadio">
-                            </div>
-                        </li>
-                        <li class="list-group-item d-flex align-items-center justify-content-between">
-                            <label class="form-check-label py-md-3 d-flex flex-column">
-                                <span class="fs-3 fw-bold">1.000.000 - 2.000.000</span>
-                                <small class="text-dark">Kuota Broadcast</small>
-                            </label>
-                            <div class="d-flex align-items-center gap-2">
-                                <small>Rp. 200/Pesan</small>
-                                <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="200" data-price="200" data-min-quota="1000000" data-max-quota="2000000" id="fiveRadio">
-                            </div>
-                        </li>
+                        @endforeach
                     </ul>
                 </div>
                 <div class="col-md-6 d-flex align-items-end px-md-5">
                     <div class="card card-body mt-3 mt-md-0 p-5 border-0 card-form-order">
+                        <div class="row mb-3">
+                            <div class="col-12">
+                                @include('components.public.alerts')
+                            </div>
+                        </div>
                         <div>
                             <h5 class="fs-4 mb-0 fw-bold">Data Pemesan</h5>
                             <p class="text-secondary">Silakan isi data pemesan berikut ini dengan lengkap</p>
-    
+
                             <div class="mb-2">
                                 <label for="buyer_name" class="form-label fw-medium">Nama Lengkap</label>
                                 <input type="text" class="form-control" name="buyer_name" id="buyer_name" required>
                             </div>
                             <div class="mb-2">
-                                <label for="buyer_telp" class="form-label fw-medium">Nomor WhatsApp</label>
-                                <input type="text" class="form-control" name="buyer_telp" id="buyer_telp" required>
+                                <label for="buyer_whatsapp" class="form-label fw-medium">Nomor WhatsApp</label>
+                                <input type="text" class="form-control" name="buyer_whatsapp" id="buyer_whatsapp" required>
                             </div>
                             <div class="mb-2">
                                 <label for="buyer_email" class="form-label fw-medium">Email</label>
                                 <input type="text" class="form-control" name="buyer_email" id="buyer_email" required>
                             </div>
-    
+
                         </div>
-    
+
                         <div class="mt-4">
                             <h5 class="fs-4 mb-0 fw-bold">Jumlah Broadcast</h5>
                             <p class="text-secondary">Sesuaikan jumlah Broadcast yang kamu butuhkan</p>
-    
+
                             <div class="input-group mb-3">
                                 <span class="input-group-text bg-transparent">
-                                    <button class="btn btn-secondary"><i class="fas fa-minus"></i></button>
+                                    <button type="button" class="btn btn-secondary"><i class="fas fa-minus"></i></button>
                                 </span>
                                 <input type="number" id="qtyRequest" name="qty_request" min="0" value="0" class="form-control border-end-0 border-start-0 text-center" readonly required>
                                 <span class="input-group-text bg-transparent">
-                                    <button class="btn btn-warning"><i class="fas fa-plus"></i></button>
+                                    <button type="button" class="btn btn-warning"><i class="fas fa-plus"></i></button>
                                 </span>
                             </div>
-    
+
                             <div class="text-center my-4">
                                 <input type="hidden" class="form-control" name="price_amount" id="price_amount">
                                 <div id="totalPriceAmount" class="fs-2 mb-3 text-success text-center fw-bold">
@@ -149,14 +121,14 @@
                                 </div>
                             </div>
                         </div>
-    
+
                         <div class="form-check mb-4">
                             <input class="form-check-input p-2 border-warning border-2 me-1" type="checkbox" name="buyer_agree_terms" required value="1" id="buyer_agree_terms">
                             <label class="form-check-label" for="flexCheckDefault">
                               Dengan ini saya menyetujui <a class="fw-bold text-warning" href="{{route('fe.page', $pages['global']['terms']->slug)}}"> Syarat & Ketentuan </a> yang berlku.
                             </label>
                         </div>
-    
+
                         <button class="btn btn-warning fw-bold px-3 py-3 rounded-pill shadow-sm">Lanjutkan Pemesanan <i class="fas fa-arrow-right-long fa-fw"></i></button>
                     </div>
                 </div>
@@ -227,7 +199,7 @@
 @section('scripts')
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            var packageRadios = document.querySelectorAll('input[name="listGroupRadio"]');
+            var packageRadios = document.querySelectorAll('input[name="package"]');
             var qtyInput = document.getElementById('qtyRequest');
             var totalPriceDisplay = document.getElementById('totalPriceAmount');
             var priceAmountInput = document.getElementById('price_amount');
@@ -273,7 +245,7 @@
             var minusButton = document.querySelector('.input-group .btn-secondary');
 
             plusButton.addEventListener('click', function() {
-                var selectedRadio = document.querySelector('input[name="listGroupRadio"]:checked');
+                var selectedRadio = document.querySelector('input[name="package"]:checked');
                 var selectedMaxQuota = parseInt(selectedRadio.getAttribute('data-max-quota'));
 
                 if (parseInt(qtyInput.value) < selectedMaxQuota) {
@@ -283,7 +255,7 @@
             });
 
             minusButton.addEventListener('click', function() {
-                var selectedRadio = document.querySelector('input[name="listGroupRadio"]:checked');
+                var selectedRadio = document.querySelector('input[name="package"]:checked');
                 var selectedMinQuota = parseInt(selectedRadio.getAttribute('data-min-quota'));
 
                 if (parseInt(qtyInput.value) > selectedMinQuota) {
@@ -294,7 +266,7 @@
 
             // Fungsi untuk memperbarui total harga saat jumlah broadcast berubah
             function updateTotalPrice() {
-                var selectedRadio = document.querySelector('input[name="listGroupRadio"]:checked');
+                var selectedRadio = document.querySelector('input[name="package"]:checked');
                 var selectedPrice = parseInt(selectedRadio.getAttribute('data-price'));
                 var selectedQuantity = parseInt(qtyInput.value);
                 var totalPrice = calculateTotalPrice(selectedPrice, selectedQuantity);
@@ -307,7 +279,7 @@
             var listGroupItems = document.querySelectorAll('.list-group-item');
             listGroupItems.forEach(function(item) {
                 item.addEventListener('click', function() {
-                    var radio = this.querySelector('input[name="listGroupRadio"]');
+                    var radio = this.querySelector('input[name="package"]');
                     radio.checked = true;
 
                     // Trigger event change pada radio button

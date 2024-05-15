@@ -113,6 +113,19 @@ class ConfigServiceProvider extends ServiceProvider
         $medizine_default_meta_description = !empty($medizine_default_meta_description) ? $medizine_default_meta_description : '';
         $medizine_term = Page::where('code', 'MEDIZINE')->first();
 
+        // Bank Transfer
+        $bank_trf_name = app('confighelper')->getConfig('GENERAL_PROFILE', 'GENERAL_PROFILE_BANK_NAME');
+        $bank_trf_name = !empty($bank_trf_name) ? $bank_trf_name : '';
+        $bank_trf_reknumber = app('confighelper')->getConfig('GENERAL_PROFILE', 'GENERAL_PROFILE_BANK_REKENING_NUMBER');
+        $bank_trf_reknumber = !empty($bank_trf_reknumber) ? $bank_trf_reknumber : '';
+        $bank_trf_atasnama = app('confighelper')->getConfig('GENERAL_PROFILE', 'GENERAL_PROFILE_BANK_OWNER');
+        $bank_trf_atasnama = !empty($bank_trf_atasnama) ? $bank_trf_atasnama : '';
+        // dd([
+        //     'bank_name' => $bank_trf_name,
+        //     'bank_norek' => $bank_trf_reknumber,
+        //     'bank_owner' => $bank_trf_atasnama,
+        // ]);
+
         // GLOBAL SK TERMS
         $global_term = Page::where('code', 'TERMS_CONDITION')->first();
 
@@ -161,6 +174,11 @@ class ConfigServiceProvider extends ServiceProvider
                 'tiktok' => $tiktok,
                 'youtube' => $youtube,
                 'linkedin' => $linkedin,
+            ],
+            'bank' => [
+                'bank_name' => $bank_trf_name,
+                'bank_norek' => $bank_trf_reknumber,
+                'bank_owner' => $bank_trf_atasnama,
             ],
             'seo' => [
                 'default_meta_keywords' => $seo_meta_keyword,

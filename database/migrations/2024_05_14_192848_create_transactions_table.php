@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
+            $table->tinyInteger('buyer_agree_terms')->nullable();
             $table->string('name');
             $table->string('email')->nullable();
             $table->string('whatsapp')->nullable();
@@ -24,10 +25,12 @@ return new class extends Migration
             $table->integer('qty');
             $table->integer('amount');
             $table->string('payment_method')->nullable();
-            $table->string('payment_evidence')->nullable();
-            $table->tinyInteger('buyer_agree_terms')->nullable();
-            $table->enum('status', ['pending','expired','paid'])->default('pending');
+            $table->enum('status', ['PENDING','EXPIRED','PAID','REJECTED'])->default('PENDING');
+            $table->string('payment_proof')->nullable();
+            $table->timestamp('payment_proof_date')->nullable();
+            $table->timestamp('rejected_at')->nullable();
             $table->timestamp('paid_at')->nullable();
+            $table->text('note')->nullable();
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();
             $table->integer('deleted_by')->nullable();

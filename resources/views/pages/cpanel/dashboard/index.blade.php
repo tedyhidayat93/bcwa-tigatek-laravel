@@ -23,40 +23,72 @@
     <div class="container-fluid">
 
         <div class="row">
-            <div class="col-6 col-sm-6 col-md-4">
+            <div class="col-12">
+                <div class="small-box bg-success">
+                    <div class="inner">
+                        <h3>Rp {{number_format($trx_counter['total_income_paid'], 0, ',', '.')}}</h3>
+                        <p>Pendapatan</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6 col-sm-6 col-md">
                 <div class="info-box">
                     <span class="info-box-icon bg-warning elevation-1"><i class="far fa-clock"></i></span>
                     <div class="info-box-content">
                         <span class="info-box-text">Transaksi Pending</span>
                         <span class="info-box-number">
-                            10
+                            {{$trx_counter['pending']}}
                         </span>
                     </div>
+                </div>
 
+            </div>
+            <div class="col-6 col-sm-6 col-md">
+                <div class="info-box">
+                    <span class="info-box-icon bg-info elevation-1"><i class="far fa-clock"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Transaksi Menunggu Konfirmasi</span>
+                        <span class="info-box-number">
+                            {{$trx_counter['waitting_confirmation']}}
+                        </span>
+                    </div>
                 </div>
 
             </div>
 
-            <div class="col-6 col-sm-6 col-md-4">
+            <div class="col-6 col-sm-6 col-md">
                 <div class="info-box mb-3">
-                    <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
+                    <span class="info-box-icon bg-secondary elevation-1"><i class="fas fa-times"></i></span>
                     <div class="info-box-content">
                         <span class="info-box-text">Transaksi Kadaluarsa</span>
-                        <span class="info-box-number">0</span>
+                        <span class="info-box-number">{{$trx_counter['expired']}}</span>
                     </div>
-
                 </div>
-
             </div>
 
-            <div class="col-6 col-sm-6 col-md-4">
+            <div class="col-6 col-sm-6 col-md">
                 <div class="info-box mb-3">
-                    <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
+                    <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-times"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Transaksi Ditolak</span>
+                        <span class="info-box-number">{{$trx_counter['rejected']}}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-6 col-md">
+                <div class="info-box mb-3">
+                    <span class="info-box-icon bg-success elevation-1"><i class="fas fa-check"></i></span>
                     <div class="info-box-content">
                         <span class="info-box-text">Transkasi Lunas</span>
-                        <span class="info-box-number">100</span>
+                        <span class="info-box-number">{{$trx_counter['paid']}}</span>
                     </div>
-
                 </div>
 
             </div>
@@ -68,10 +100,10 @@
                 <div class="card">
                     <div class="card-header bg-dark border-transparent">
                         <h3 class="card-title text-bold">
-                            <i class="fas fa-shopping-cart"></i> Pesanan Terbaru
+                            <i class="fas fa-shopping-cart"></i> 10 Pesanan Terbaru
                         </h3>
                         <div class="card-tools">
-                            <a href="#" class="btn btn-xs btn-light mr-4"><i class="fas fa-eye"></i> Lihat Semua</a>
+                            <a href="{{route('cpanel.transaction.list')}}" class="btn btn-xs btn-light mr-4"><i class="fas fa-eye"></i> Lihat Semua</a>
                             <button type="button" class="btn btn-tool" data-card-widget="collapse">
                                 <i class="fas fa-minus"></i>
                             </button>
@@ -92,75 +124,50 @@
                                         <th>Email</th>
                                         <th>WhatsApp</th>
                                         <th>Paket</th>
-                                        <th>Jumlah</th>
+                                        <th>Jumlah Request</th>
                                         <th>Total</th>
                                         <th>Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($transactions as $trx)
                                     <tr>
-                                        <td><a href="#" class="text-primary text-bold">INV-TIGATEK-001</a></td>
-                                        <td>27-03-3034</td>
-                                        <td>Tedy Dev</td>
-                                        <td>tedy@mail.com</td>
-                                        <td>081280827265</td>
+                                        <td><a href="{{route('fe.payment-invoice', ['inv' => $trx->inv_number])}}" target="_blank" class="text-primary text-bold">{{$trx->inv_number}}</a></td>
+                                        <td>{{date('d-m-Y', strtotime($trx->date))}}</td>
+                                        <td>{{$trx->name}}</td>
+                                        <td>{{$trx->email}}</td>
+                                        <td>{{$trx->whatsapp}}</td>
                                         <td>
                                             <span class="text-bold">
-                                                Paket 1
+                                                {{$trx->package->name}}
                                             </span>
                                             <br>
-                                            <small>0-10 Broadcast</small>
+                                            <small>Rp {{number_format($trx->package->price, 0, '.', ',')}}</small>
                                         </td>
-                                        <td>10</td>
-                                        <td>Rp 10.000</td>
+                                        <td>{{$trx->qty}} Broadcast</td>
+                                        <td>Rp {{number_format($trx->amount, 0, ',', '.')}}</td>
                                         <td>
-                                            <span class="badge badge-success">Lunas</span>
+                                            @if($trx->status == 'PENDING' && empty($trx->payment_proof))
+                                                <span class="badge bg-warning rounded-pill p-2 text-dark"><i class="far fa-clock"></i> Menunggu Pembayaran</span>
+                                            @elseif($trx->status == 'PENDING' && !empty($trx->payment_proof))
+                                                <span class="badge bg-info rounded-pill p-2 text-dark"><i class="far fa-clock"></i> Menunggu Konfirmasi</span>
+                                            @elseif($trx->status == 'PAID')
+                                                <span class="badge bg-success rounded-pill p-2 text-white"><i class="fas fa-check"></i> Lunas</span>
+                                            @elseif($trx->status == 'REJECTED')
+                                                <span class="badge bg-danger rounded-pill p-2 text-white"><i class="fas fa-times"></i> Ditolak</span>
+                                            @elseif($trx->status == 'EXPIRED')
+                                                <span class="badge bg-secondary rounded-pill p-2 text-white"><i class="fas fa-times"></i> Kadaluarsa</span>
+                                            @else
+                                                <span class="badge bg-light rounded-pill p-2 text-white">-</span>
+                                            @endif
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td><a href="#" class="text-primary text-bold">INV-TIGATEK-002</a></td>
-                                        <td>27-03-3034</td>
-                                        <td>Tedy Dev</td>
-                                        <td>tedy@mail.com</td>
-                                        <td>081280827265</td>
-                                        <td>
-                                            <span class="text-bold">
-                                                Paket 1
-                                            </span>
-                                            <br>
-                                            <small>0-10 Broadcast</small>
-                                        </td>
-                                        <td>10</td>
-                                        <td>Rp 10.000</td>
-                                        <td>
-                                            <span class="badge badge-warning">Pending</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="#" class="text-primary text-bold">INV-TIGATEK-002</a></td>
-                                        <td>27-03-3034</td>
-                                        <td>Tedy Dev</td>
-                                        <td>tedy@mail.com</td>
-                                        <td>081280827265</td>
-                                        <td>
-                                            <span class="text-bold">
-                                                Paket 1
-                                            </span>
-                                            <br>
-                                            <small>0-10 Broadcast</small>
-                                        </td>
-                                        <td>10</td>
-                                        <td>Rp 10.000</td>
-                                        <td>
-                                            <span class="badge badge-danger">Kadaluarsa</span>
-                                        </td>
-                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
 
                     </div>
-
                 </div>
             </div>
 

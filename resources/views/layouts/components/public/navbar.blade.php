@@ -20,7 +20,7 @@
                     <a class="nav-link" href="#faq">FAQ</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{$contact['whatsapp']}}">Hubungi Kami</a>
+                    <a class="nav-link" href="{{$contact['whatsapp'] ?? '#'}}">Hubungi Kami</a>
                 </li>
             </ul>
             <div class="d-flex" role="search">
@@ -37,7 +37,7 @@
                     <a class="nav-link" href="{{route('fe.homepage')}}#faq">FAQ</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{$contact['whatsapp']}}">Hubungi Kami</a>
+                    <a class="nav-link" href="{{$contact['whatsapp'] ?? '#'}}">Hubungi Kami</a>
                 </li>
             </ul>
             <div class="d-flex" role="search">

@@ -32,7 +32,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link {{request()->segment(2) == 'transaction' ? 'active' : ''}}">
+                    <a href="{{ route('cpanel.transaction.list') }}" class="nav-link {{request()->segment(2) == 'transaction' ? 'active' : ''}}">
                         <i class="nav-icon fas fa-receipt"></i>
                         <p>
                             Daftar Transaksi

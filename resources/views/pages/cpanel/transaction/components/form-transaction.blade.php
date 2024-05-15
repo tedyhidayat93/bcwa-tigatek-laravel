@@ -2,7 +2,7 @@
     <div class="card-header">
         <h6 class="m-0 font-weight-bold">
             <i class="fas fa-pen p-1 bg-teal shadow-sm rounded mr-1" style="font-size:16px;"></i>
-            {{$method == 'put' ? 'Edit' : 'Add New'}} Transaction
+            {{$method == 'put' ? 'Edit' : 'Add New'}} Transaksi
         </h6>
     </div>
 

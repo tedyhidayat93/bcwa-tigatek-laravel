@@ -18,6 +18,7 @@ Route::name('fe.')
 ->group(function () {
     Route::get('/', [FeHomepageController::class, 'index'])->name('homepage');
     Route::post('/checkout', [FePaymentController::class, 'checkout'])->name('payment-checkout');
+    Route::post('/proof-payment', [FePaymentController::class, 'proof_payment'])->name('payment-proof');
     Route::get('/invoice', [FePaymentController::class, 'invoice'])->name('payment-invoice');
     Route::get('/page/{slug}', [FePageController::class, 'index'])->name('page');
 });
@@ -42,9 +43,6 @@ Route::prefix('cpanel/')
     ->name('transaction.')
     ->group(function () {
         Route::get('/list', [TransactionController::class, 'index'])->name('list');
-        Route::get('/create', [TransactionController::class, 'create'])->name('create');
-        Route::post('/store', [TransactionController::class, 'store'])->name('store');
-        Route::get('/edit/{id}', [TransactionController::class, 'edit'])->name('edit');
         Route::put('/update', [TransactionController::class, 'update'])->name('update');
         Route::get('/delete/{id}', [TransactionController::class, 'delete'])->name('delete');
     });
@@ -59,7 +57,7 @@ Route::prefix('cpanel/')
         Route::put('/update', [FaqController::class, 'update'])->name('update');
         Route::get('/delete/{id}', [FaqController::class, 'delete'])->name('delete');
     });
-    
+
     Route::prefix('package/')
     ->name('package.')
     ->group(function () {
